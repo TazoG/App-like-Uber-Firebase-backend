@@ -9,21 +9,21 @@
 /* Begin PBXBuildFile section */
 		DA59347729E18AF80005A9B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA59347629E18AF80005A9B9 /* AppDelegate.swift */; };
 		DA59347929E18AF80005A9B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA59347829E18AF80005A9B9 /* SceneDelegate.swift */; };
-		DA59347B29E18AF80005A9B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA59347A29E18AF80005A9B9 /* ViewController.swift */; };
 		DA59347E29E18AF80005A9B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA59347C29E18AF80005A9B9 /* Main.storyboard */; };
 		DA59348029E18AFA0005A9B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA59347F29E18AFA0005A9B9 /* Assets.xcassets */; };
 		DA59348329E18AFA0005A9B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA59348129E18AFA0005A9B9 /* LaunchScreen.storyboard */; };
+		DA59349029E18FE80005A9B9 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA59348F29E18FE80005A9B9 /* LoginController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DA59347329E18AF80005A9B9 /* App-like-Uber-Firebase-backend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "App-like-Uber-Firebase-backend.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA59347629E18AF80005A9B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA59347829E18AF80005A9B9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DA59347A29E18AF80005A9B9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DA59347D29E18AF80005A9B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DA59347F29E18AFA0005A9B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA59348229E18AFA0005A9B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA59348429E18AFA0005A9B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA59348F29E18FE80005A9B9 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +56,55 @@
 		DA59347529E18AF80005A9B9 /* App-like-Uber-Firebase-backend */ = {
 			isa = PBXGroup;
 			children = (
+				DA59348E29E18CB90005A9B9 /* Model */,
+				DA59348D29E18CB60005A9B9 /* View */,
+				DA59348C29E18CB30005A9B9 /* Controller */,
+				DA59348B29E18CB00005A9B9 /* Service */,
+				DA59348A29E18CAC0005A9B9 /* Utility */,
 				DA59347629E18AF80005A9B9 /* AppDelegate.swift */,
 				DA59347829E18AF80005A9B9 /* SceneDelegate.swift */,
-				DA59347A29E18AF80005A9B9 /* ViewController.swift */,
 				DA59347C29E18AF80005A9B9 /* Main.storyboard */,
 				DA59347F29E18AFA0005A9B9 /* Assets.xcassets */,
 				DA59348129E18AFA0005A9B9 /* LaunchScreen.storyboard */,
 				DA59348429E18AFA0005A9B9 /* Info.plist */,
 			);
 			path = "App-like-Uber-Firebase-backend";
+			sourceTree = "<group>";
+		};
+		DA59348A29E18CAC0005A9B9 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		DA59348B29E18CB00005A9B9 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		DA59348C29E18CB30005A9B9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DA59348F29E18FE80005A9B9 /* LoginController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DA59348D29E18CB60005A9B9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DA59348E29E18CB90005A9B9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +178,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA59347B29E18AF80005A9B9 /* ViewController.swift in Sources */,
 				DA59347729E18AF80005A9B9 /* AppDelegate.swift in Sources */,
+				DA59349029E18FE80005A9B9 /* LoginController.swift in Sources */,
 				DA59347929E18AF80005A9B9 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
