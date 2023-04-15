@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 
 class SignUpController: UIViewController {
     
@@ -106,7 +107,13 @@ class SignUpController: UIViewController {
             }
             
             guard let uid = result?.user.uid else { return }
-            let values = ["email": email, "fullname": fullname]
+            let values = ["email": email,
+                          "fullname": fullname,
+                          "accountType": accountTypeIndex] as [String : Any]
+            
+            Database.database().reference().child("users").child(uid).updateChildValues(values) { error, ref in
+                print("Successfully registered user and saved data")
+            }
         }
     }
     
