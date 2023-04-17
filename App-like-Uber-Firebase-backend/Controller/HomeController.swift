@@ -53,16 +53,25 @@ class HomeController: UIViewController {
     //MARK: - UI
     
     func configureUI() {
+        configureMapView()
+    }
+    
+    func configureMapView() {
         view.addSubview(mapView)
         mapView.frame = view.frame
+        
+        mapView.showsUserLocation = true
+        mapView.userTrackingMode = .follow
     }
 }
+
+//MARK: - Extentions Home
 
 extension HomeController: CLLocationManagerDelegate {
     func enableLocationServices() {
         locationManager.delegate = self
         
-        switch CLLocationManager.authorizationStatus() {
+        switch locationManager.authorizationStatus {
         case .notDetermined:
             print("DEBUG: Not determined")
             locationManager.requestWhenInUseAuthorization()
