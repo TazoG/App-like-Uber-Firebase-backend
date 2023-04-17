@@ -37,6 +37,7 @@
 		DABCD7EE29EB086400CB5A80 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DABCD7ED29EB086400CB5A80 /* FirebaseRemoteConfigSwift */; };
 		DABCD7F029EB086400CB5A80 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = DABCD7EF29EB086400CB5A80 /* FirebaseStorage */; };
 		DABCD7F229EB086400CB5A80 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = DABCD7F129EB086400CB5A80 /* FirebaseStorageCombine-Community */; };
+		DAD66A4B29ED90ED00B6BF5A /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD66A4A29ED90ED00B6BF5A /* HomeController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		DABCD7C429EA8CE800CB5A80 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		DABCD7C629EA99F900CB5A80 /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
 		DABCD7C829EB042900CB5A80 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		DAD66A4A29ED90ED00B6BF5A /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 			children = (
 				DA59348F29E18FE80005A9B9 /* LoginController.swift */,
 				DABCD7C429EA8CE800CB5A80 /* SignUpController.swift */,
+				DAD66A4A29ED90ED00B6BF5A /* HomeController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 			files = (
 				DABCD7C529EA8CE800CB5A80 /* SignUpController.swift in Sources */,
 				DABCD7C729EA99F900CB5A80 /* AuthButton.swift in Sources */,
+				DAD66A4B29ED90ED00B6BF5A /* HomeController.swift in Sources */,
 				DABB356B29E5AE44006212F6 /* Extentions.swift in Sources */,
 				DA59347729E18AF80005A9B9 /* AppDelegate.swift in Sources */,
 				DA59349029E18FE80005A9B9 /* LoginController.swift in Sources */,
