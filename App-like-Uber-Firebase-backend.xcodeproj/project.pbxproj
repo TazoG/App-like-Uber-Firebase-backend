@@ -13,6 +13,7 @@
 		DA59348029E18AFA0005A9B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA59347F29E18AFA0005A9B9 /* Assets.xcassets */; };
 		DA59348329E18AFA0005A9B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA59348129E18AFA0005A9B9 /* LaunchScreen.storyboard */; };
 		DA59349029E18FE80005A9B9 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA59348F29E18FE80005A9B9 /* LoginController.swift */; };
+		DA9B9A1C29EEB23E000E2371 /* LocationInputActivationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B9A1B29EEB23E000E2371 /* LocationInputActivationView.swift */; };
 		DABB356B29E5AE44006212F6 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABB356A29E5AE44006212F6 /* Extentions.swift */; };
 		DABCD7C529EA8CE800CB5A80 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABCD7C429EA8CE800CB5A80 /* SignUpController.swift */; };
 		DABCD7C729EA99F900CB5A80 /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABCD7C629EA99F900CB5A80 /* AuthButton.swift */; };
@@ -49,6 +50,7 @@
 		DA59348229E18AFA0005A9B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA59348429E18AFA0005A9B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA59348F29E18FE80005A9B9 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		DA9B9A1B29EEB23E000E2371 /* LocationInputActivationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInputActivationView.swift; sourceTree = "<group>"; };
 		DABB356A29E5AE44006212F6 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		DABCD7C429EA8CE800CB5A80 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		DABCD7C629EA99F900CB5A80 /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				DABCD7C629EA99F900CB5A80 /* AuthButton.swift */,
+				DA9B9A1B29EEB23E000E2371 /* LocationInputActivationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				DABB356B29E5AE44006212F6 /* Extentions.swift in Sources */,
 				DA59347729E18AF80005A9B9 /* AppDelegate.swift in Sources */,
 				DA59349029E18FE80005A9B9 /* LoginController.swift in Sources */,
+				DA9B9A1C29EEB23E000E2371 /* LocationInputActivationView.swift in Sources */,
 				DA59347929E18AF80005A9B9 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
