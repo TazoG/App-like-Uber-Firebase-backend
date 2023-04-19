@@ -92,7 +92,7 @@ class HomeController: UIViewController {
     }
 }
 
-//MARK: - Extentions Home
+//MARK: - CLLocationManagerDelegate
 
 extension HomeController: CLLocationManagerDelegate {
     func enableLocationServices() {
