@@ -17,9 +17,14 @@ class HomeController: UIViewController {
     private let locationManager = CLLocationManager()
     private let inputActivationView = LocationInputActivationView()
     private let locationInputView = LocationInputView()
+    private let locationInputViewHeight: CGFloat = 200
+    
     private let tableView = UITableView()
     fileprivate let reuseIdentifier = "LocationCell"
-    private let locationInputViewHeight: CGFloat = 200
+    
+    private var fullname: String? {
+        didSet { locationInputView.titleLabel.text = fullname }
+    }
     
     //MARK: - Lifecycle
 
@@ -28,10 +33,17 @@ class HomeController: UIViewController {
        
         checkIfUserIsLoggedIn()
         enableLocationServices()
+        fetchUserData()
 //        signOut()
     }
     
     //MARK: - API
+    
+    func fetchUserData() {
+        Service.shared.fetchUserData { fullname in
+            self.fullname = fullname
+        }
+    }
     
     func checkIfUserIsLoggedIn() {
         if Auth.auth().currentUser?.uid == nil {
@@ -157,12 +169,12 @@ extension HomeController: LocationInputActivationViewDelegate {
 
 extension HomeController: LocationInputViewDelegate {
     func dismissLocationInputView() {
-        locationInputView.removeFromSuperview()
         
         UIView.animate(withDuration: 0.4) {
             self.locationInputView.alpha = 0
             self.tableView.frame.origin.y = self.view.frame.height
         } completion: { _ in
+            self.locationInputView.removeFromSuperview()
             UIView.animate(withDuration: 0.4) {
                 self.inputActivationView.alpha = 1
             }
@@ -173,8 +185,17 @@ extension HomeController: LocationInputViewDelegate {
 //MARK: - UITableView
 
 extension HomeController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "   "
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        return section == 0 ? 2 : 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
