@@ -22,6 +22,7 @@ class HomeController: UIViewController {
     
     private let tableView = UITableView()
     fileprivate let reuseIdentifier = "LocationCell"
+    fileprivate let annotationIdentifier = "DriverAnnotation"
     
     private var user: User? {
         didSet { locationInputView.user = user }
@@ -56,7 +57,20 @@ class HomeController: UIViewController {
             guard let coordinate = driver.location?.coordinate else { return }
             let annotation = DriverAnnotation(uid: driver.uid, coordinate: coordinate)
             
-            self.mapView.addAnnotation(annotation)
+            var driverIsVisible: Bool {
+                return self.mapView.annotations.contains { annotation -> Bool in
+                    guard let driverAnno = annotation as? DriverAnnotation else { return false }
+                    if driverAnno.uid == driver.uid {
+                        driverAnno.updateAnnotationPosition(withCoordinate: coordinate)
+                        return true
+                    }
+                    return false
+                }
+            }
+            
+            if !driverIsVisible {
+                self.mapView.addAnnotation(annotation)
+            }
         }
     }
     
@@ -112,6 +126,7 @@ class HomeController: UIViewController {
         
         mapView.showsUserLocation = true
         mapView.userTrackingMode = .follow
+        mapView.delegate = self
     }
     
     func configureLocationInputView() {
@@ -140,6 +155,19 @@ class HomeController: UIViewController {
         tableView.frame = CGRect(x: 0, y: view.frame.height, width: view.frame.width, height: height)
         
         view.addSubview(tableView)
+    }
+}
+
+//MARK: - MKMapViewDelegate
+
+extension HomeController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if let annotation = annotation as? DriverAnnotation {
+            let view = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
+            view.image = UIImage(named: "chevron-sign-to-right")
+            return view
+        }
+        return nil
     }
 }
 
