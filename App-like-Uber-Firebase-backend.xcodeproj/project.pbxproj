@@ -25,6 +25,7 @@
 		DABCD7C729EA99F900CB5A80 /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABCD7C629EA99F900CB5A80 /* AuthButton.swift */; };
 		DABCD7C929EB042900CB5A80 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DABCD7C829EB042900CB5A80 /* GoogleService-Info.plist */; };
 		DAD66A4B29ED90ED00B6BF5A /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD66A4A29ED90ED00B6BF5A /* HomeController.swift */; };
+		DAEB18E62A03E92A0096A182 /* DriverAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB18E52A03E92A0096A182 /* DriverAnnotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		DABCD7C629EA99F900CB5A80 /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
 		DABCD7C829EB042900CB5A80 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		DAD66A4A29ED90ED00B6BF5A /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		DAEB18E52A03E92A0096A182 /* DriverAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverAnnotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				DAB9955A29F18F54009EBA93 /* User.swift */,
+				DAEB18E52A03E92A0096A182 /* DriverAnnotation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				DABCD7C729EA99F900CB5A80 /* AuthButton.swift in Sources */,
 				DAD66A4B29ED90ED00B6BF5A /* HomeController.swift in Sources */,
 				DA9B9A1E29EEC84F000E2371 /* LocationInputView.swift in Sources */,
+				DAEB18E62A03E92A0096A182 /* DriverAnnotation.swift in Sources */,
 				DABB356B29E5AE44006212F6 /* Extentions.swift in Sources */,
 				DA59347729E18AF80005A9B9 /* AppDelegate.swift in Sources */,
 				DAB67CAE29F032D50085BF92 /* LocationCell.swift in Sources */,
