@@ -23,6 +23,7 @@ class HomeController: UIViewController {
     private let tableView = UITableView()
     fileprivate let reuseIdentifier = "LocationCell"
     fileprivate let annotationIdentifier = "DriverAnnotation"
+    private var searchResults = [MKPlacemark]()
     
     private var user: User? {
         didSet { locationInputView.user = user }
@@ -162,6 +163,29 @@ class HomeController: UIViewController {
     }
 }
 
+//MARK: - Map Helper Funcs
+
+private extension HomeController {
+    func searchBy(naturalLanguageQuery: String, completion: @escaping([MKPlacemark]) -> Void) {
+        var results = [MKPlacemark]()
+        
+        let request = MKLocalSearch.Request()
+        request.region = mapView.region
+        request.naturalLanguageQuery = naturalLanguageQuery
+        
+        let search = MKLocalSearch(request: request)
+        search.start { response, error in
+            guard let response = response else { return }
+            
+            response.mapItems.forEach { item in
+                results.append(item.placemark)
+            }
+            
+            completion(results)
+        }
+    }
+}
+
 //MARK: - MKMapViewDelegate
 
 extension HomeController: MKMapViewDelegate {
@@ -211,6 +235,13 @@ extension HomeController: LocationInputActivationViewDelegate {
 //MARK: - LocationInputViewDelegate
 
 extension HomeController: LocationInputViewDelegate {
+    func executeSearch(query: String) {
+        searchBy(naturalLanguageQuery: query) { results in
+            self.searchResults = results
+            self.tableView.reloadData()
+        }
+    }
+    
     func dismissLocationInputView() {
         
         UIView.animate(withDuration: 0.4) {
@@ -238,11 +269,16 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? 2 : 5
+        return section == 0 ? 2 : searchResults.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! LocationCell
+        
+        if indexPath.section == 1 {
+            cell.placemark = searchResults[indexPath.row]
+        }
+        
         return cell
     } 
 }
