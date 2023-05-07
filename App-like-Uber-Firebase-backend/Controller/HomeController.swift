@@ -65,6 +65,7 @@ class HomeController: UIViewController {
             print("DEBUG: Show side manu")
         case .dismissActionView:
             removeAnnotationsAndOverlays()
+            mapView.showAnnotations(mapView.annotations, animated: true)
             
             UIView.animate(withDuration: 0.3) {
                 self.actionButtonConfig = .showMenu
@@ -310,6 +311,8 @@ extension HomeController {
         case .authorizedWhenInUse:
             print("DEBUG: Auth when in use")
             locationManager?.requestAlwaysAuthorization()
+        case .none:
+            print("DEBUG: Nothing...")
         @unknown default:
             break
         }
@@ -384,6 +387,10 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource {
             annotation.coordinate = selectedPlacemarks.coordinate
             self.mapView.addAnnotation(annotation)
             self.mapView.selectAnnotation(annotation, animated: true)
+            
+            let annotations = self.mapView.annotations.filter({ !$0.isKind(of: DriverAnnotation.self) })
+            
+            self.mapView.showAnnotations(annotations, animated: true)
         }
     }
 }
