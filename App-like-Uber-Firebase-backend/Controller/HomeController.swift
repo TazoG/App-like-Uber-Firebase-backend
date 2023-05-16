@@ -26,8 +26,10 @@ class HomeController: UIViewController {
     private let mapView = MKMapView()
     private let locationManager = LocationHandler.shared.locationManager
     private let inputActivationView = LocationInputActivationView()
+    private let rideActionView = RideActionView()
     private let locationInputView = LocationInputView()
-    private let locationInputViewHeight: CGFloat = 200
+    private final let locationInputViewHeight: CGFloat = 200
+    private final let rideActionViewHeight: CGFloat = 300
     
     private let tableView = UITableView()
     fileprivate let reuseIdentifier = "LocationCell"
@@ -154,6 +156,7 @@ class HomeController: UIViewController {
     
     func configureUI() {
         configureMapView()
+        configureRideActionView()
         
         view.addSubview(actionButton)
         actionButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, paddingTop: 16, paddingLeft: 20, width: 30, height: 30)
@@ -197,6 +200,11 @@ class HomeController: UIViewController {
         
     }
     
+    func configureRideActionView() {
+        view.addSubview(rideActionView)
+        rideActionView.frame = CGRect(x: 0, y: view.frame.height, width: view.frame.width, height: rideActionViewHeight)
+    }
+    
     func configureTableView() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -215,7 +223,12 @@ class HomeController: UIViewController {
             self.tableView.frame.origin.y = self.view.frame.height
             self.locationInputView.removeFromSuperview()
         }, completion: completion)
-        
+    }
+    
+    func presentRideActionView() {
+        UIView.animate(withDuration: 0.3) {
+            self.rideActionView.frame.origin.y = self.view.frame.height - 300
+        }
     }
 }
 
