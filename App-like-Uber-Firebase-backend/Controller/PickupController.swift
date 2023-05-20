@@ -83,10 +83,9 @@ class PickupController: UIViewController {
     // MARK: - @objc Selectors
     
     @objc func handleAcceptTrip() {
-        print("TAZO: Accept trip")
-//        DriverService.shared.acceptTrip(trip: trip) { (error, ref) in
-//            self.delegate?.didAcceptTrip(self.trip)
-//        }
+        Service.shared.acceptTrip(trip: trip) { (error, ref) in
+            self.delegate?.didAcceptTrip(self.trip)
+        }
     }
     
 //    @objc func animateProgress() {
