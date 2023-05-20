@@ -52,7 +52,10 @@ class HomeController: UIViewController {
     
     private var trip: Trip? {
         didSet {
-            print("DEBUG: Show pickup passenger controller")
+            guard let trip = trip else { return }
+            let controller = PickupController(trip: trip)
+            controller.modalPresentationStyle = .fullScreen
+            self.present(controller, animated: true)
         }
     }
     
@@ -78,7 +81,7 @@ class HomeController: UIViewController {
     @objc func actionButtonPressed() {
         switch actionButtonConfig {
         case .showMenu:
-            print("DEBUG: Show side manu")
+            print("TAZO: Show side manu")
         case .dismissActionView:
             removeAnnotationsAndOverlays()
             mapView.showAnnotations(mapView.annotations, animated: true)
@@ -152,7 +155,7 @@ class HomeController: UIViewController {
                 self.present(nav, animated: true)
             }
         } catch {
-            print("DEBUG: Error signing out")
+            print("TAZO: Error signing out")
         }
     }
     
@@ -343,19 +346,19 @@ extension HomeController {
     func enableLocationServices() {
         switch locationManager?.authorizationStatus {
         case .notDetermined:
-            print("DEBUG: Not determined")
+            print("TAZO: Not determined")
             locationManager?.requestWhenInUseAuthorization()
         case .restricted, .denied:
             break
         case .authorizedAlways:
-            print("DEBUG: Auth always")
+            print("TAZO: Auth always")
             locationManager?.startUpdatingLocation()
             locationManager?.desiredAccuracy = kCLLocationAccuracyBest
         case .authorizedWhenInUse:
-            print("DEBUG: Auth when in use")
+            print("TAZO: Auth when in use")
             locationManager?.requestAlwaysAuthorization()
         case .none:
-            print("DEBUG: Nothing...")
+            print("TAZO: Nothing...")
         @unknown default:
             break
         }
@@ -446,9 +449,9 @@ extension HomeController: RideActionViewDelegate {
         
         Service.shared.uploadTrip(pickupCoordinates, destinationCoordinates) { err, ref in
             if let error = err {
-                print("DEBUG: Failed to upload trip with error \(error.localizedDescription)")
+                print("TAZO: Failed to upload trip with error \(error.localizedDescription)")
             }
-            print("DEBUG: Did upload successfully")
+            print("TAZO: Did upload successfully")
         }
     }
 }

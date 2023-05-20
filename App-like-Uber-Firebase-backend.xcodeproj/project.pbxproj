@@ -17,6 +17,7 @@
 		DA9B9A1C29EEB23E000E2371 /* LocationInputActivationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B9A1B29EEB23E000E2371 /* LocationInputActivationView.swift */; };
 		DA9B9A1E29EEC84F000E2371 /* LocationInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B9A1D29EEC84F000E2371 /* LocationInputView.swift */; };
 		DAAC9BD62A02E50C00FEB364 /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAC9BD52A02E50C00FEB364 /* LocationHandler.swift */; };
+		DAB130BD2A192AB5005F4616 /* PickupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB130BC2A192AB5005F4616 /* PickupController.swift */; };
 		DAB37FDF2A15279800CB5A55 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB37FDE2A15279800CB5A55 /* Trip.swift */; };
 		DAB67CAE29F032D50085BF92 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB67CAD29F032D50085BF92 /* LocationCell.swift */; };
 		DAB9955929F177AA009EBA93 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB9955829F177AA009EBA93 /* Service.swift */; };
@@ -45,6 +46,7 @@
 		DA9B9A1D29EEC84F000E2371 /* LocationInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInputView.swift; sourceTree = "<group>"; };
 		DAAC9BD42A02DF7B00FEB364 /* App-like-Uber-Firebase-backend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "App-like-Uber-Firebase-backend.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAAC9BD52A02E50C00FEB364 /* LocationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHandler.swift; sourceTree = "<group>"; };
+		DAB130BC2A192AB5005F4616 /* PickupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupController.swift; sourceTree = "<group>"; };
 		DAB37FDE2A15279800CB5A55 /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		DAB67CAD29F032D50085BF92 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		DAB9955829F177AA009EBA93 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				DA59348F29E18FE80005A9B9 /* LoginController.swift */,
 				DABCD7C429EA8CE800CB5A80 /* SignUpController.swift */,
 				DAD66A4A29ED90ED00B6BF5A /* HomeController.swift */,
+				DAB130BC2A192AB5005F4616 /* PickupController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				DAD66A4B29ED90ED00B6BF5A /* HomeController.swift in Sources */,
 				DA9B9A1E29EEC84F000E2371 /* LocationInputView.swift in Sources */,
 				DAB37FDF2A15279800CB5A55 /* Trip.swift in Sources */,
+				DAB130BD2A192AB5005F4616 /* PickupController.swift in Sources */,
 				DAEB18E62A03E92A0096A182 /* DriverAnnotation.swift in Sources */,
 				DABB356B29E5AE44006212F6 /* Extentions.swift in Sources */,
 				DA59347729E18AF80005A9B9 /* AppDelegate.swift in Sources */,
