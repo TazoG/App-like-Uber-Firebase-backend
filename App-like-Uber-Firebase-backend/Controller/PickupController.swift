@@ -71,9 +71,8 @@ class PickupController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("DEBUG: passenger uid is \(trip.passengerUid)")
         configureUI()
-//        configureMapView()
+        configureMapView()
 //        self.perform(#selector(animateProgress), with: nil, afterDelay: 0.5)
     }
     
