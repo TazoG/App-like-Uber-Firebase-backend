@@ -455,11 +455,16 @@ extension HomeController: RideActionViewDelegate {
         guard let pickupCoordinates = locationManager?.location?.coordinate else { return }
         guard let destinationCoordinates = view.destination?.coordinate else { return }
         
+        shouldPresentLoadingView(true, message: "Finding you a ride...")
+        
         Service.shared.uploadTrip(pickupCoordinates, destinationCoordinates) { err, ref in
             if let error = err {
                 print("TAZO: Failed to upload trip with error \(error.localizedDescription)")
             }
-            print("TAZO: Did upload successfully")
+            
+            UIView.animate(withDuration: 0.3) {
+                self.rideActionView.frame.origin.y = self.view.frame.height
+            }
         }
     }
 }
