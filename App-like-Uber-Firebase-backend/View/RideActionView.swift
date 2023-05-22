@@ -82,18 +82,21 @@ class RideActionView: UIView {
         let view = UIView()
         view.backgroundColor = .black
         
+        view.addSubview(infoViewLabel)
+        infoViewLabel.centerX(inView: view)
+        infoViewLabel.centerY(inView: view)
+        return view
+    }()
+    
+    private let infoViewLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 30)
         label.textColor = .white
         label.text = "X"
-        
-        view.addSubview(label)
-        label.centerX(inView: view)
-        label.centerY(inView: view)
-        return view
+        return label
     }()
     
-    private let uberXLabel: UILabel = {
+    private let uberInfoLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 18)
         label.text = "UberX"
@@ -134,14 +137,14 @@ class RideActionView: UIView {
         infoView.setDimensions(height: 60, width: 60)
         infoView.layer.cornerRadius = 60 / 2
         
-        addSubview(uberXLabel)
-        uberXLabel.anchor(top: infoView.bottomAnchor, paddingTop: 8)
-        uberXLabel.centerX(inView: self)
+        addSubview(uberInfoLabel)
+        uberInfoLabel.anchor(top: infoView.bottomAnchor, paddingTop: 8)
+        uberInfoLabel.centerX(inView: self)
         
         let separatorView = UIView()
         separatorView.backgroundColor = .lightGray
         addSubview(separatorView)
-        separatorView.anchor(top: uberXLabel.bottomAnchor, left: leftAnchor, right: rightAnchor, paddingTop: 4, height: 0.75)
+        separatorView.anchor(top: uberInfoLabel.bottomAnchor, left: leftAnchor, right: rightAnchor, paddingTop: 4, height: 0.75)
         
         addSubview(actionButton)
         actionButton.anchor(left: leftAnchor, bottom: safeAreaLayoutGuide.bottomAnchor, right: rightAnchor, paddingLeft: 12, paddingBottom: 12, paddingRight: 12, height: 50)
@@ -154,7 +157,18 @@ class RideActionView: UIView {
     //MARK: - @objc Selectors
     
     @objc func actionButtonPressed() {
-        delegate?.uploadTrip(self)
+        switch buttonAction {
+        case .requestRide:
+            delegate?.uploadTrip(self)
+        case .cancel:
+            print("TAZO: Handle Cancel")
+        case .getDirections:
+            print("TAZO: Handle Get Directions")
+        case .pickup:
+            print("TAZO: Handle Pickup")
+        case .dropOff:
+            print("TAZO: Handle Drop off")
+        }
     }
     
     //MARK: - UI
@@ -176,14 +190,40 @@ class RideActionView: UIView {
                 actionButton.setTitle(buttonAction.description, for: .normal)
                 titleLabel.text = "Driver En Route"
             }
+            
+            infoViewLabel.text = String(user.fullname.first ?? "X")
+            uberInfoLabel.text = user.fullname
         case .driverArrived:
             break
         case .pickupPassenger:
-            break
+            titleLabel.text = "Arrived At Passenger Location"
+            buttonAction = .pickup
+            actionButton.setTitle(buttonAction.description, for: .normal)
         case .tripInProgress:
-            break
+            guard let user = user else { return }
+            
+            if user.accountType == .driver {
+                actionButton.setTitle("TRIP IN PROGRESS", for: .normal)
+                actionButton.isEnabled = false
+            } else {
+                buttonAction = .getDirections
+                actionButton.setTitle(buttonAction.description, for: .normal)
+            }
+            
+            titleLabel.text = "En Route To Destination"
+            addressLabel.text = ""
         case .endTrip:
-            break
+            guard let user = user else { return }
+            
+            if user.accountType == .driver {
+                actionButton.setTitle("ARRIVED AT DESTINATION", for: .normal)
+                actionButton.isEnabled = false
+            } else {
+                buttonAction = .dropOff
+                actionButton.setTitle(buttonAction.description, for: .normal)
+            }
+            
+            titleLabel.text = "Arrived at Destination"
         }
     }
 }
