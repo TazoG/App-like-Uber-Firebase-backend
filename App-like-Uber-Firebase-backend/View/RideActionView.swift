@@ -65,7 +65,6 @@ class RideActionView: UIView {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 18)
-        label.text = "Test address title"
         label.textAlignment = .center
         return label
     }()
@@ -74,7 +73,6 @@ class RideActionView: UIView {
         let label = UILabel()
         label.textColor = .lightGray
         label.font = UIFont.systemFont(ofSize: 16)
-        label.text = "Tbilisi, zghvis ubani 11 m/r, 1kv"
         label.textAlignment = .center
         return label
     }()
@@ -156,5 +154,26 @@ class RideActionView: UIView {
     
     @objc func actionButtonPressed() {
         delegate?.uploadTrip(self)
+    }
+    
+    //MARK: - UI
+    
+    func configureUI(withConfig config: RideActionViewConfiguration) {
+        switch config {
+        case .requestRide:
+            break
+        case .tripAccepted:
+            titleLabel.text = "En Route to Passenger"
+            buttonAction = .getDirections
+            actionButton.setTitle(buttonAction.description, for: .normal)
+        case .driverArrived:
+            break
+        case .pickupPassenger:
+            break
+        case .tripInProgress:
+            break
+        case .endTrip:
+            break
+        }
     }
 }
