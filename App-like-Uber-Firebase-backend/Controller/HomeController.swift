@@ -499,6 +499,32 @@ extension HomeController: RideActionViewDelegate {
             }
         }
     }
+    
+    func cancelTrip() {
+        Service.shared.deleteTrip { (error, ref) in
+            if let error = error {
+                print("DEBUG: Error deleting trip \(error.localizedDescription)")
+                return
+            }
+            
+//            self.centerMapOnUserLocation()
+            self.animateRideActionView(shouldShow: false)
+            self.removeAnnotationsAndOverlays()
+            
+            self.actionButton.setImage(#imageLiteral(resourceName: "baseline_menu_black_36dp").withRenderingMode(.alwaysOriginal), for: .normal)
+            self.actionButtonConfig = .showMenu
+            
+            self.inputActivationView.alpha = 1
+        }
+    }
+    
+    func pickupPassenger() {
+        print("TAZO: pick up passenger")
+    }
+    
+    func dropOffPassenger() {
+        print("TAZO: drop off passenger")
+    }
 }
 
 //MARK: - PickupControllerDelegate
