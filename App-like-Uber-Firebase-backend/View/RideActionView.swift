@@ -173,7 +173,7 @@ class RideActionView: UIView {
         case .getDirections:
             print("TAZO: Handle Get Directions")
         case .pickup:
-            print("TAZO: Handle Pickup")
+            delegate?.pickupPassenger()
         case .dropOff:
             print("TAZO: Handle Drop off")
         }
