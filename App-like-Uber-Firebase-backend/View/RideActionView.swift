@@ -186,6 +186,7 @@ class RideActionView: UIView {
         case .requestRide:
             buttonAction = .requestRide
             actionButton.setTitle(buttonAction.description, for: .normal)
+            
         case .tripAccepted:
             guard let user = user else { return }
             
@@ -201,12 +202,20 @@ class RideActionView: UIView {
             
             infoViewLabel.text = String(user.fullname.first ?? "X")
             uberInfoLabel.text = user.fullname
+            
         case .driverArrived:
-            break
+            guard let user = user else { return }
+            
+            if user.accountType == .driver {
+                titleLabel.text = "Driver Has Arrived"
+                addressLabel.text = "Please meet driver at pickup location"
+            }
+            
         case .pickupPassenger:
             titleLabel.text = "Arrived At Passenger Location"
             buttonAction = .pickup
             actionButton.setTitle(buttonAction.description, for: .normal)
+            
         case .tripInProgress:
             guard let user = user else { return }
             
@@ -220,6 +229,7 @@ class RideActionView: UIView {
             
             titleLabel.text = "En Route To Destination"
             addressLabel.text = ""
+            
         case .endTrip:
             guard let user = user else { return }
             
