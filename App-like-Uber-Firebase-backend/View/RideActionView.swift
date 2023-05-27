@@ -175,7 +175,7 @@ class RideActionView: UIView {
         case .pickup:
             delegate?.pickupPassenger()
         case .dropOff:
-            print("TAZO: Handle Drop off")
+            delegate?.dropOffPassenger()
         }
     }
     

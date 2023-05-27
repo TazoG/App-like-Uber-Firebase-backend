@@ -105,7 +105,7 @@ class HomeController: UIViewController {
             mapView.showAnnotations(mapView.annotations, animated: true)
             
             UIView.animate(withDuration: 0.3) {
-                self.actionButtonConfig = .showMenu
+                self.inputActivationView.alpha = 1
                 self.configureActionButton(config: .showMenu)
                 self.animateRideActionView(shouldShow: false)
             }
@@ -146,7 +146,13 @@ class HomeController: UIViewController {
                 self.rideActionView.config = .endTrip
                 
             case .completed:
-                break
+                Service.shared.deleteTrip { error, ref in
+                    self.animateRideActionView(shouldShow: false)
+                    self.centerMapOnUserLocation()
+                    self.configureActionButton(config: .showMenu)
+                    self.inputActivationView.alpha = 1
+                    self.presentAlertController(withTitle: "Trip Completed", message: "We hope you enjoyed your trip!")
+                }
             }
         }
     }
@@ -163,6 +169,8 @@ class HomeController: UIViewController {
             
             self.setCustomRegion(withType: .destination, coordinates: trip.destinationCoordinates)
             self.generatePolyline(toDestination: mapItem)
+            
+            self.mapView.zoomToFit(annotations: self.mapView.annotations)
         }
     }
     
@@ -471,13 +479,14 @@ extension HomeController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         guard let trip = self.trip else { return }
         
-        
         if region.identifier == AnnotationType.pickup.rawValue {
             Service.shared.updateTripState(trip: trip, state: .driverArrived) { err, ref in
                 self.rideActionView.config = .pickupPassenger
             }
-        } else {
-            print("TAZO: Did start monitoring destination regions \(region)")
+        }
+        
+        if region.identifier == AnnotationType.destination.rawValue {
+            print("DEBUG: Did start montioring destination region \(region)")
             
             Service.shared.updateTripState(trip: trip, state: .arrivedAtDestination) { err, ref in
                 self.rideActionView.config = .endTrip
@@ -627,7 +636,12 @@ extension HomeController: RideActionViewDelegate {
     }
     
     func dropOffPassenger() {
-        print("TAZO: drop off passenger")
+        guard let trip = self.trip else { return }
+        Service.shared.updateTripState(trip: trip, state: .completed) { err, ref in
+            self.removeAnnotationsAndOverlays()
+            self.centerMapOnUserLocation()
+            self.animateRideActionView(shouldShow: false)
+        }
     }
 }
 
