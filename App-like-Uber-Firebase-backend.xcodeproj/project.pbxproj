@@ -27,6 +27,8 @@
 		DABCD7C529EA8CE800CB5A80 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABCD7C429EA8CE800CB5A80 /* SignUpController.swift */; };
 		DABCD7C729EA99F900CB5A80 /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABCD7C629EA99F900CB5A80 /* AuthButton.swift */; };
 		DABCD7C929EB042900CB5A80 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DABCD7C829EB042900CB5A80 /* GoogleService-Info.plist */; };
+		DAD2E5652A2249FA009FB761 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD2E5642A2249FA009FB761 /* MenuController.swift */; };
+		DAD2E5672A224A2F009FB761 /* ContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD2E5662A224A2F009FB761 /* ContainerController.swift */; };
 		DAD66A4B29ED90ED00B6BF5A /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD66A4A29ED90ED00B6BF5A /* HomeController.swift */; };
 		DAEB18E62A03E92A0096A182 /* DriverAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB18E52A03E92A0096A182 /* DriverAnnotation.swift */; };
 /* End PBXBuildFile section */
@@ -56,6 +58,8 @@
 		DABCD7C429EA8CE800CB5A80 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		DABCD7C629EA99F900CB5A80 /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
 		DABCD7C829EB042900CB5A80 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		DAD2E5642A2249FA009FB761 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
+		DAD2E5662A224A2F009FB761 /* ContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerController.swift; sourceTree = "<group>"; };
 		DAD66A4A29ED90ED00B6BF5A /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		DAEB18E52A03E92A0096A182 /* DriverAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverAnnotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,8 +142,8 @@
 		DA59348C29E18CB30005A9B9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				DA59348F29E18FE80005A9B9 /* LoginController.swift */,
-				DABCD7C429EA8CE800CB5A80 /* SignUpController.swift */,
+				DAD2E5632A2249A8009FB761 /* SideMenu */,
+				DAD2E5622A22497A009FB761 /* Authentication */,
 				DAD66A4A29ED90ED00B6BF5A /* HomeController.swift */,
 				DAB130BC2A192AB5005F4616 /* PickupController.swift */,
 			);
@@ -166,6 +170,24 @@
 				DAB37FDE2A15279800CB5A55 /* Trip.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		DAD2E5622A22497A009FB761 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				DA59348F29E18FE80005A9B9 /* LoginController.swift */,
+				DABCD7C429EA8CE800CB5A80 /* SignUpController.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		DAD2E5632A2249A8009FB761 /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				DAD2E5642A2249FA009FB761 /* MenuController.swift */,
+				DAD2E5662A224A2F009FB761 /* ContainerController.swift */,
+			);
+			path = SideMenu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,7 +316,9 @@
 				DABB356B29E5AE44006212F6 /* Extentions.swift in Sources */,
 				DA59347729E18AF80005A9B9 /* AppDelegate.swift in Sources */,
 				DAB67CAE29F032D50085BF92 /* LocationCell.swift in Sources */,
+				DAD2E5652A2249FA009FB761 /* MenuController.swift in Sources */,
 				DAAC9BD62A02E50C00FEB364 /* LocationHandler.swift in Sources */,
+				DAD2E5672A224A2F009FB761 /* ContainerController.swift in Sources */,
 				DA59349029E18FE80005A9B9 /* LoginController.swift in Sources */,
 				DABC45FB2A13BC2800DD0289 /* RideActionView.swift in Sources */,
 				DAB9955B29F18F54009EBA93 /* User.swift in Sources */,

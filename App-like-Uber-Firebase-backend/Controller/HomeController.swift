@@ -24,6 +24,10 @@ private enum AnnotationType: String {
     case destination
 }
 
+protocol HomeControllerDelegate: AnyObject {
+    func handleMenuToggle()
+}
+
 class HomeController: UIViewController {
     
     //MARK: - Properties
@@ -42,6 +46,8 @@ class HomeController: UIViewController {
     private var searchResults = [MKPlacemark]()
     private var actionButtonConfig = ActionButtonConfiguration()
     private var route: MKRoute?
+    
+    weak var delegate: HomeControllerDelegate?
     
     private var user: User? {
         didSet {
@@ -99,7 +105,7 @@ class HomeController: UIViewController {
     @objc func actionButtonPressed() {
         switch actionButtonConfig {
         case .showMenu:
-            print("TAZO: Show side manu")
+            delegate?.handleMenuToggle()
         case .dismissActionView:
             removeAnnotationsAndOverlays()
             mapView.showAnnotations(mapView.annotations, animated: true)
