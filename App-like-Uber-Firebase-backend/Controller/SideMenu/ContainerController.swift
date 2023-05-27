@@ -19,6 +19,8 @@ class ContainerController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .backgroundColor
+        
         configureHomeController()
         configureMenuController()
     }
@@ -37,6 +39,7 @@ class ContainerController: UIViewController {
     func configureMenuController() {
         addChild(menuController)
         menuController.didMove(toParent: self)
+        menuController.view.frame = self.view.bounds
         view.insertSubview(menuController.view, at: 0)
     }
     
