@@ -13,7 +13,7 @@ class ContainerController: UIViewController {
     //MARK: - Properties
     
     private let homeController = HomeController()
-    private let menuController = MenuController()
+    private var menuController: MenuController!
     private var isExpanded = false
     
     private var user: User? {
@@ -54,11 +54,11 @@ class ContainerController: UIViewController {
     }
     
     func configureMenuController(withUser user: User) {
+        menuController = MenuController(user: user)
         addChild(menuController)
         menuController.didMove(toParent: self)
         menuController.view.frame = self.view.bounds
         view.insertSubview(menuController.view, at: 0)
-        menuController.user = user
     }
     
     func animateMenu(shouldExpand: Bool) {
