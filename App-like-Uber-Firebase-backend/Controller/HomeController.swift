@@ -243,19 +243,6 @@ class HomeController: UIViewController {
         }
     }
     
-    func signOut() {
-        do {
-            try Auth.auth().signOut()
-            DispatchQueue.main.async {
-                let nav = UINavigationController(rootViewController: LoginController())
-                nav.modalPresentationStyle = .fullScreen
-                self.present(nav, animated: true)
-            }
-        } catch {
-            print("TAZO: Error signing out")
-        }
-    }
-    
     //MARK: - UI
     
     func configure() {
