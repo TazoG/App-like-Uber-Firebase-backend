@@ -33,6 +33,7 @@ class SettingsController: UITableViewController {
     //MARK: - Properties
     
     var user: User
+    private let locationManager = LocationHandler.shared.locationManager
     
     private lazy var infoHeader: UserInfoHeader = {
         let frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 100)
@@ -117,6 +118,9 @@ extension SettingsController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let type = LocationType(rawValue: indexPath.row) else { return }
-        print("TAZO: type is \(type.description)")
+        guard let location = locationManager?.location else { return }
+        let controller = AddLocationController(type: type, location: location)
+        let nav = UINavigationController(rootViewController: controller)
+        present(nav, animated: true)
     }
 }
