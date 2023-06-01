@@ -1,22 +1,16 @@
 //
-//  MenuHeader.swift
+//  UserInfoHeader.swift
 //  App-like-Uber-Firebase-backend
 //
-//  Created by Tazo Gigitashvili on 27.05.23.
+//  Created by Tazo Gigitashvili on 31.05.23.
 //
 
 import UIKit
 
-class MenuHeader: UIView {
+class UserInfoHeader: UIView {
     
     //MARK: - Properties
     
-//    var user: User? {
-//        didSet {
-//            fullnameLabel.text = user?.fullname
-//            emailLabel.text = user?.email
-//        }
-//    }
     private let user: User
     
     private lazy var profileImageView: UIImageView = {
@@ -28,7 +22,6 @@ class MenuHeader: UIView {
     private lazy var fullnameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16)
-        label.textColor = .white
         label.text = user.fullname
         return label
     }()
@@ -47,10 +40,11 @@ class MenuHeader: UIView {
         self.user = user
         super.init(frame: frame)
         
-        backgroundColor = .backgroundColor
+        backgroundColor = .white
         
         addSubview(profileImageView)
-        profileImageView.anchor(top: safeAreaLayoutGuide.topAnchor, left: leftAnchor, paddingTop: 4, paddingLeft: 12, width: 64, height: 64)
+        profileImageView.centerY(inView: self, leftAnchor: leftAnchor, paddingLeft: 16)
+        profileImageView.setDimensions(height: 64, width: 64)
         profileImageView.layer.cornerRadius = 64 / 2
         
         let stack = UIStackView(arrangedSubviews: [fullnameLabel, emailLabel])
@@ -65,6 +59,4 @@ class MenuHeader: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    //MARK: - @objc Selectors
 }

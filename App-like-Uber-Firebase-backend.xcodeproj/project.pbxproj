@@ -17,6 +17,8 @@
 		DA9B9A1C29EEB23E000E2371 /* LocationInputActivationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B9A1B29EEB23E000E2371 /* LocationInputActivationView.swift */; };
 		DA9B9A1E29EEC84F000E2371 /* LocationInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B9A1D29EEC84F000E2371 /* LocationInputView.swift */; };
 		DAAC9BD62A02E50C00FEB364 /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAC9BD52A02E50C00FEB364 /* LocationHandler.swift */; };
+		DAAC9F482A27C3C900E578D2 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAC9F472A27C3C900E578D2 /* SettingsController.swift */; };
+		DAAC9F4A2A27CAEC00E578D2 /* UserInfoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAC9F492A27CAEC00E578D2 /* UserInfoHeader.swift */; };
 		DAB130BD2A192AB5005F4616 /* PickupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB130BC2A192AB5005F4616 /* PickupController.swift */; };
 		DAB37FDF2A15279800CB5A55 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB37FDE2A15279800CB5A55 /* Trip.swift */; };
 		DAB67CAE29F032D50085BF92 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB67CAD29F032D50085BF92 /* LocationCell.swift */; };
@@ -49,6 +51,8 @@
 		DA9B9A1D29EEC84F000E2371 /* LocationInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInputView.swift; sourceTree = "<group>"; };
 		DAAC9BD42A02DF7B00FEB364 /* App-like-Uber-Firebase-backend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "App-like-Uber-Firebase-backend.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAAC9BD52A02E50C00FEB364 /* LocationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHandler.swift; sourceTree = "<group>"; };
+		DAAC9F472A27C3C900E578D2 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		DAAC9F492A27CAEC00E578D2 /* UserInfoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoHeader.swift; sourceTree = "<group>"; };
 		DAB130BC2A192AB5005F4616 /* PickupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupController.swift; sourceTree = "<group>"; };
 		DAB37FDE2A15279800CB5A55 /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		DAB67CAD29F032D50085BF92 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
@@ -148,6 +152,7 @@
 				DAD2E5622A22497A009FB761 /* Authentication */,
 				DAD66A4A29ED90ED00B6BF5A /* HomeController.swift */,
 				DAB130BC2A192AB5005F4616 /* PickupController.swift */,
+				DAAC9F472A27C3C900E578D2 /* SettingsController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -161,6 +166,7 @@
 				DAB67CAD29F032D50085BF92 /* LocationCell.swift */,
 				DABC45FA2A13BC2800DD0289 /* RideActionView.swift */,
 				DAD2E5682A2262C7009FB761 /* MenuHeader.swift */,
+				DAAC9F492A27CAEC00E578D2 /* UserInfoHeader.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -312,6 +318,8 @@
 				DABCD7C529EA8CE800CB5A80 /* SignUpController.swift in Sources */,
 				DABCD7C729EA99F900CB5A80 /* AuthButton.swift in Sources */,
 				DAD66A4B29ED90ED00B6BF5A /* HomeController.swift in Sources */,
+				DAAC9F4A2A27CAEC00E578D2 /* UserInfoHeader.swift in Sources */,
+				DAAC9F482A27C3C900E578D2 /* SettingsController.swift in Sources */,
 				DA9B9A1E29EEC84F000E2371 /* LocationInputView.swift in Sources */,
 				DAB37FDF2A15279800CB5A55 /* Trip.swift in Sources */,
 				DAB130BD2A192AB5005F4616 /* PickupController.swift in Sources */,
