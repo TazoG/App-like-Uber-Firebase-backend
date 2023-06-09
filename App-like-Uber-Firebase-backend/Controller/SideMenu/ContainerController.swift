@@ -22,7 +22,6 @@ class ContainerController: UIViewController {
     private var user: User? {
         didSet {
             guard let user = user else { return }
-            print("TAZO: User home locations is \(user.homeLocation)")
             homeController.user = user
             configureMenuController(withUser: user)
         }
@@ -54,11 +53,7 @@ class ContainerController: UIViewController {
     
     func checkIfUserIsLoggedIn() {
         if Auth.auth().currentUser?.uid == nil {
-            DispatchQueue.main.async {
-                let nav = UINavigationController(rootViewController: LoginController())
-                nav.modalPresentationStyle = .fullScreen
-                self.present(nav, animated: true)
-            }
+            presentLoginController()
         } else {
             configure()
         }
@@ -74,17 +69,22 @@ class ContainerController: UIViewController {
     func signOut() {
         do {
             try Auth.auth().signOut()
-            DispatchQueue.main.async {
-                let nav = UINavigationController(rootViewController: LoginController())
-                nav.modalPresentationStyle = .fullScreen
-                self.present(nav, animated: true)
-            }
+            presentLoginController()
         } catch {
             print("TAZO: Error signing out")
         }
     }
     
     //MARK: - UI
+    
+    func presentLoginController() {
+        DispatchQueue.main.async {
+            let nav = UINavigationController(rootViewController: LoginController())
+            nav.isModalInPresentation = true
+            nav.modalPresentationStyle = .fullScreen
+            self.present(nav, animated: true)
+        }
+    }
     
     func configure() {
         view.backgroundColor = .backgroundColor
@@ -171,6 +171,7 @@ extension ContainerController: MenuControllerDelegate {
                 let controller = SettingsController(user: user)
                 controller.delegate = self
                 let nav = UINavigationController(rootViewController: controller)
+                nav.isModalInPresentation = true
                 nav.modalPresentationStyle = .fullScreen
                 self.present(nav, animated: true)
             case .logout:
@@ -184,4 +185,3 @@ extension ContainerController: MenuControllerDelegate {
         }
     }
 }
-

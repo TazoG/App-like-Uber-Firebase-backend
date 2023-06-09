@@ -53,8 +53,6 @@ class MenuController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("tazo: MenuController frame: \(self.view.frame)")
-        print("tazo: TableView frame: \(tableView.frame)")
         view.backgroundColor = .white
         configureTableView()
     }
