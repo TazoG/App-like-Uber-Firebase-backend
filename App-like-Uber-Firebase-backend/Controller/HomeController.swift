@@ -237,6 +237,7 @@ class HomeController: UIViewController {
     
     func configureSavedUserLocations() {
         guard let user = user else { return }
+        savedLocations.removeAll()
         
         if let homeLocation = user.homeLocation {
             geocodeAddressString(address: homeLocation)
