@@ -18,7 +18,8 @@ class PickupController: UIViewController {
     
     weak var delegate: PickupControllerDelegate?
     private let mapView = MKMapView()
-    let trip: Trip
+    var trip: Trip
+    var isAccepted: Bool = false
     
     private lazy var circularProgressView: CircularProgressView = {
         let frame = CGRect(x: 0, y: 0, width: 360, height: 360)
@@ -83,17 +84,22 @@ class PickupController: UIViewController {
     // MARK: - @objc Selectors
     
     @objc func handleAcceptTrip() {
-        DriverService.shared.acceptTrip(trip: trip) { (error, ref) in
+        isAccepted = true
+        DriverService.shared.acceptTrip(trip: self.trip) { error, ref in
             self.delegate?.didAcceptTrip(self.trip)
         }
     }
     
     @objc func animateProgress() {
         circularProgressView.animatePulsatingLayer()
+        
         circularProgressView.setProgressWithAnimation(duration: 10, value: 0) {
-            DriverService.shared.updateTripState(trip: self.trip, state: .denied) { (err, ref) in
-                self.dismiss(animated: true, completion: nil)
+            if !self.isAccepted {
+                DriverService.shared.updateTripState(trip: self.trip, state: .accepted) { err, ref in
+                    self.dismiss(animated: true, completion: nil)
+                }
             }
+            
         }
     }
     

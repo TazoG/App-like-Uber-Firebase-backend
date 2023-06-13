@@ -139,7 +139,7 @@ class HomeController: UIViewController {
                     self.inputActivationView.alpha = 1
                     self.removeAnnotationsAndOverlays()
                 }
-                
+//                break
             case .accepted:
                 self.shouldPresentLoadingView(false)
                 self.removeAnnotationsAndOverlays()
@@ -677,9 +677,10 @@ extension HomeController: PickupControllerDelegate {
         observeCancelledTrip(trip: trip)
         
         self.dismiss(animated: true) {
-            Service.shared.fetchUserData(uid: trip.passengerUid) { passenger in
-                self.animateRideActionView(shouldShow: true, config: .tripAccepted, user: passenger)
-            }
+            Service.shared.fetchUserData(uid: trip.passengerUid, completion: { passenger in
+                self.animateRideActionView(shouldShow: true, config: .tripAccepted,
+                                           user: passenger)
+            })
         }
     }
 }
